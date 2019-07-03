@@ -42,4 +42,16 @@ export default {
   cursor: pointer;
   position: relative;
 }
+
+@media (max-width: 560px) {
+  .todos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 360px) {
+  .todos {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>

@@ -3,7 +3,7 @@
     <h3>Add To Do</h3>
     <div class="add">
       <form @submit.prevent="onSubmit">
-        <input type="text" v-model="title" placeholder="Add Todo..." />
+        <input type="text" v-model="title" autofocus="autofocus" placeholder="Add Todo..." />
         <input type="submit" value="submit" />
       </form>
     </div>
@@ -23,6 +23,7 @@ export default {
     ...mapActions(["addTodo"]),
     onSubmit() {
       this.addTodo(this.title);
+      this.title = "";
     }
   }
 };

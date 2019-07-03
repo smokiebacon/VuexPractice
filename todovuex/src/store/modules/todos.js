@@ -17,12 +17,18 @@ const getters = {
 const actions = {
     async fetchTodos({ commit }) {
         const response = await axios.get('https://jsonplaceholder.typicode.com/todos/');
-        console.log(response.data)
+        commit('setTodos', response.data)
+        //commit is basically throwing the response.data into a method we arbitrarily named setTodos, which
+        //we'll use in mutations
     }
 }
 
 //mutations are what is going to actually MUTATE the state
-const mutations = {}
+const mutations = {
+    setTodos: (state, todos) => (state.todos = todos)
+    //taking in the state, and the todos array, 
+    //take the state.todos and set it as the todos that are passed in
+}
 
 
 export default {

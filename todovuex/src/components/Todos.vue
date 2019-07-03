@@ -14,8 +14,11 @@ export default {
   name: "Todos",
   methods: {
     ...mapActions(["fetchTodos"])
-  },
+  }, //we use spread operator here so we can keep adding on methods later
+  //mapActions is exactly what it sounds like, get the
   computed: mapGetters(["allTodos"]), //array because allTodos in an array of objects
+
+  //created is the same as ComponentDidMount lifecyle method in React
   created() {
     this.fetchTodos();
   }
@@ -26,7 +29,7 @@ export default {
 <style scoped>
 .todos {
   display: grid;
-  display-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 1rem;
 }
 

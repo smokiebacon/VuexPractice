@@ -2,10 +2,7 @@
 import axios from 'axios';
 
 const state = {
-    todos: [
-        { id: 1, title: 'Todo One' },
-        { id: 2, title: 'Todo Two' }
-    ]
+    todos: []
 }
 
 //getters, in order to get this into todo component to display, need to make a getter 
@@ -15,7 +12,16 @@ const getters = {
     //computed: mapGetters(["allTodos"])
 
 }
-const actions = {}
+
+//actions are API requests basically
+const actions = {
+    async fetchTodos({ commit }) {
+        const response = await axios.get('https://jsonplaceholder.typicode.com/todos/');
+        console.log(response.data)
+    }
+}
+
+//mutations are what is going to actually MUTATE the state
 const mutations = {}
 
 

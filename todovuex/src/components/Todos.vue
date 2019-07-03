@@ -1,11 +1,16 @@
 <template>
   <div>
     <h3>To Do:</h3>
+
     <div class="todos">
       <div v-for="todo in allTodos" :key="todo.id" class="todo">
         {{todo.title}}
-        <i class="far fa-edit"></i>
-        <i @click.prevent="deleteTodo(todo.id)" class="fas fa-trash"></i>
+        <i v-b-popover.hover="'Edit Todo'" class="far fa-edit"></i>
+        <i
+          @click.prevent="deleteTodo(todo.id)"
+          v-b-popover.hover="'Delete Todo'"
+          class="fas fa-trash"
+        ></i>
       </div>
     </div>
   </div>
@@ -16,6 +21,11 @@ import { mapGetters, mapActions } from "vuex";
 //similar to connect in Redux
 export default {
   name: "Todos",
+  data() {
+    return {
+      hover: false
+    };
+  },
   methods: {
     ...mapActions(["fetchTodos", "deleteTodo"])
   }, //we use spread operator here so we can keep adding on methods later

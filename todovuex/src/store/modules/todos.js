@@ -33,9 +33,11 @@ const actions = {
     },
 
     async deleteTodo({ commit }, id) {
-        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
-        commit('removeTodo', id)
+        await axios.delete(`https://jsonplaceholder.typicode.com/todos/${id}`);
+        commit('removeTodo', id);
     }
+
+
 }
 
 //mutations are what is going to actually MUTATE the state
@@ -47,7 +49,9 @@ const mutations = {
     //newTodo will take in state and a SINGLE todo
     //want to UNSHIFT (put in beggining on array, not the end. push will put at the end) 
     //it to state.todos
-    removeTodo: (state, id) => state.todos = state.todos.filter(todo => todo.id !== id)
+    removeTodo: (state, id) => (state.todos = state.todos.filter(todo => todo.id !== id))
+    //filtering by the todo's id by NOT matching the id of the todo.id 
+    //that is passed in
 }
 
 

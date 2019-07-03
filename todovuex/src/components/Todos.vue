@@ -4,6 +4,7 @@
     <div class="todos">
       <div v-for="todo in allTodos" :key="todo.id" class="todo">
         {{todo.title}}
+        <i class="far fa-edit"></i>
         <i @click.prevent="deleteTodo(todo.id)" class="fas fa-trash"></i>
       </div>
     </div>
@@ -46,7 +47,14 @@ export default {
   position: relative;
 }
 
-i {
+.fa-edit {
+  position: absolute;
+  bottom: 0.5em;
+  right: 1.6em;
+  color: white;
+  cursor: pointer;
+}
+.fa-trash {
   position: absolute;
   bottom: 0.5em;
   right: 0.5em;

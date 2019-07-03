@@ -2,7 +2,10 @@
   <div>
     <h3>To Do:</h3>
     <div class="todos">
-      <div v-for="todo in allTodos" :key="todo.id" class="todo">{{todo.title}}</div>
+      <div v-for="todo in allTodos" :key="todo.id" class="todo">
+        {{todo.title}}
+        <i @click.prevent="deleteTodo(todo.id)" class="fas fa-trash"></i>
+      </div>
     </div>
   </div>
 </template>
@@ -13,7 +16,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Todos",
   methods: {
-    ...mapActions(["fetchTodos"])
+    ...mapActions(["fetchTodos", "deleteTodo"])
   }, //we use spread operator here so we can keep adding on methods later
   //mapActions is exactly what it sounds like, get the
   computed: mapGetters(["allTodos"]), //array because allTodos in an array of objects
@@ -41,6 +44,14 @@ export default {
   text-align: center;
   cursor: pointer;
   position: relative;
+}
+
+i {
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+  color: white;
+  cursor: pointer;
 }
 
 @media (max-width: 560px) {

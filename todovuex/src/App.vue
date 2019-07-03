@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Todos />
+    <div class="container">
+      <Todos />
+    </div>
   </div>
 </template>
 
@@ -16,4 +18,16 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: Arial;
+  line-height: 1.6;
+  background: white;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: auto;
+  padding: 0 2rem;
+}
 </style>
